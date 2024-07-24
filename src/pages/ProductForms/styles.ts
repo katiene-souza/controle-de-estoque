@@ -11,6 +11,7 @@ export const Container = styled.div`
     width: 40rem;
     height: 60rem;
     gap: 2rem;
+    margin: 1rem auto;
 `
 export const Title = styled.h1`
     color: var(--purple);

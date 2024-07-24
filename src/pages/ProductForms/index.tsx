@@ -5,7 +5,7 @@ import { IProduct } from "../../@types/product";
 import { ProductContext } from "../../context/ProductContext";
 
 
-const ProductForm = () => {
+const ProductForms = () => {
   const context = useContext(ProductContext);
   const navigate = useNavigate();
 
@@ -128,4 +128,4 @@ const ProductForm = () => {
   );
 };
 
-export default ProductForm;
+export default ProductForms;

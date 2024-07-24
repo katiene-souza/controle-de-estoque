@@ -3,7 +3,6 @@ import styled from "styled-components"
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
-    margin: 4rem;
     gap: 4rem;
 `
 export const Cards = styled.div`
@@ -22,12 +21,17 @@ export const Search = styled.div`
     flex-direction: row;
     justify-content: space-between;
 `
-export const Button = styled.button`
+export const Input = styled.input`
     background: none;
-    color: var(--purple-dark);
+    
     text-align: left;
     font-size: var(--font-size-medium);
     border: 2px solid var(--purple-dark);
     border-radius: 50px;
+    width: 21%;
     padding: 0.5rem 5rem 0.5rem 1rem;
+
+    input::placeholder {
+        color: var(--purple-dark);
+    }
 `

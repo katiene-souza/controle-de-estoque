@@ -2,7 +2,7 @@ import { useContext } from "react";
 import ProductItem from "../ProductItem";
 import { ProductContext } from "../../context/ProductContext";
 import { IProduct } from "../../@types/product";
-import { Button, Cards, Container, Search, Title } from "./styles";
+import { Input, Cards, Container, Search, Title } from "./styles";
 
 
 
@@ -25,7 +25,7 @@ const ProductList = () => {
     <Container>
       <Search>
         <Title>Todos os Produtos</Title>
-        <Button>Pesquisar por nome ou descrição</Button>
+        <Input type="text" placeholder="Pesquisar por nome ou descrição"/>
       </Search>
       <Cards>
         {products.map((product: IProduct) => (
