@@ -23,6 +23,7 @@ export const Search = styled.div`
 `
 export const Input = styled.input`
     background: none;
+    color: var(--text-color);
     text-align: left;
     font-size: var(--font-size-medium);
     border: 2px solid var(--text-color);
