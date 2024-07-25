@@ -1,21 +1,22 @@
-import { FormEvent, useContext, useState } from "react";
+import { FormEvent, useContext, useEffect, useState } from "react";
 import { Button, Container, Form, Title } from "./styles";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { IProduct } from "../../@types/product";
 import { ProductContext } from "../../context/ProductContext";
 
-
 const ProductForms = () => {
+  const { id } = useParams<{ id: string }>();
   const context = useContext(ProductContext);
   const navigate = useNavigate();
 
-  if(!context) {
-    alert("ahhhh")
+  if (!context) {
+    alert("Contexto não encontrado!");
   }
 
-  const { addProduct } = context;
+  const { products, setProducts, getProductById, addProduct } = context;
 
   const [productData, setProductData] = useState<IProduct>({
+    id: "",
     name: "",
     category: "",
     price: "",
@@ -23,23 +24,56 @@ const ProductForms = () => {
     description: "",
   });
 
+  useEffect(() => {
+    if (id) {
+      const product = getProductById(id);
+      setProductData(product);
+    }
+  }, [id, getProductById]);
+
+  const NumberValidator = () => {
+    const price = Number(productData.price);
+    const stock = Number(productData.stock);
+    if (
+      Number.isInteger(productData.price) &&
+      price > 0 &&
+      Number.isInteger(productData.stock) &&
+      stock > 0
+    ) {
+      return true;
+    }
+  };
+
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
-    addProduct(productData);
-    setProductData({
-      name: "",
-      category: "",
-      price: "",
-      stock: "",
-      description: "",
-    });
-    navigate('/');
+
+    if (
+      (productData.name &&
+        productData.category &&
+        productData.price &&
+        productData.stock &&
+        productData.description) === ""
+    ) {
+      window.alert("Todos os campos precisam ser preenchidos!");
+    } else if (!NumberValidator()) {
+      window.alert("Os números precisam ser maior que 0!");
+    } else {
+      if (id) {
+        const updatedProducts = products.map((product) =>
+          product.id == id ? productData : product
+        );
+        setProducts(updatedProducts);
+      } else {
+        addProduct(productData);
+      }
+      navigate("/");
+    }
   };
 
   return (
     <>
       <Container>
-        <Title>Crie um produto:</Title>
+        <Title>{id ? "Edite" : "Crie"} um produto:</Title>
         <Form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="nome">Nome:</label>
@@ -67,6 +101,7 @@ const ProductForms = () => {
                 }
                 required
               >
+                <option value=""></option>
                 <option value="smartphones">Smartphones</option>
                 <option value="tablets">Tablets</option>
                 <option value="laptops">Laptops</option>

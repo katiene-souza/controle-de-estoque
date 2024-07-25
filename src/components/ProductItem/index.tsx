@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { IProduct } from "../../@types/product";
 import Delete from "../../assets/delete";
 import Edit from "../../assets/edit";
@@ -19,6 +20,7 @@ const ProductItem = ({
   stock,
   description,
   onRemove,
+  onEdit
 }: IProduct) => {
   return (
     <Card>
@@ -30,7 +32,7 @@ const ProductItem = ({
       <Description>{description}</Description>
       <Price>R$ {price},00</Price>
       <Buttons>
-        <button>{Edit()}</button>
+        <button><Link to={onEdit}>{Edit()}</Link></button>
         <button onClick={onRemove}>{Delete()}</button>
       </Buttons>
     </Card>
