@@ -1,17 +1,16 @@
-import { createContext, ReactNode, useState } from "react";
+import { createContext, useState } from "react";
 import { ProductContextType } from "../@types/productContext"; 
 import { IProduct } from "../@types/product";
+import { ChildrenType } from "../@types/children";
 
 export const ProductContext = createContext<ProductContextType>({
   products: [],
   addProduct: () => { },
   setProducts: () => { },
-  getProductById: () => {},
+  getProductById: () => {} 
 });
 
-type ChildrenType = {
-  children: ReactNode;
-};
+
 
 export const ProductProvider = ({ children }: ChildrenType) => {
   const [products, setProducts] = useState<IProduct[]>([]);

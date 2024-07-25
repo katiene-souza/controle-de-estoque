@@ -1,16 +1,21 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   :root{
-    --purple: #4D3E6B;
-    --purple-light: #FAEDFF;
+    --purple: ${({ theme }) =>
+      theme.isDarkMode ? "rgba(77, 62, 107, 0.5)" : "#4D3E6B"}; ;
+    --background:${({ theme }) => (theme.isDarkMode ? "#2E0054" : "#FAEDFF")};
+    --background-secondary: ${({ theme }) =>
+      theme.isDarkMode ? "rgba(77, 62, 107, 0.8)" : "#FFFFF1"};
+    --background-tertiary: ${({ theme }) =>
+      theme.isDarkMode ? "#EF9F05" : "#2E0054"};
     --purple-dark: #2E0054;
-    --gray: #A6A8AB;
-    --dark-gray: #4A4A68;
-    --gray-medium: #8C8CA1;
-    --gray-light: #D1D1D1;
+    --text-color: ${({ theme }) => (theme.isDarkMode ? "#FFFFF1" : "#2E0054")};
+    --text-color-secondary: ${({ theme }) =>
+      theme.isDarkMode ? "#2E0054" : "#FFFFF1"};
+    --text-color-tertiary: ${({ theme }) =>
+      theme.isDarkMode ? "#2E0054" : "#EF9F05"};
     --yellow: #EF9F05;
-    --yellow-light: #FFFFF1;
     --font-size-normal: 1rem;
     --font-size-small: 0.875rem;
     --font-size-xsmall: 0.75rem;
@@ -29,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: var(--purple-light);
+    background: var(--background);
   }
 `;
 

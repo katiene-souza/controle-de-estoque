@@ -35,14 +35,16 @@ const ProductForms = () => {
     const price = Number(productData.price);
     const stock = Number(productData.stock);
     if (
-      Number.isInteger(productData.price) &&
+      Number.isInteger(price) &&
       price > 0 &&
-      Number.isInteger(productData.stock) &&
+      Number.isInteger(price) &&
       stock > 0
     ) {
       return true;
     }
   };
+
+  console.log(NumberValidator())
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();

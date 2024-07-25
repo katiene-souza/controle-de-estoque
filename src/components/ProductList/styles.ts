@@ -12,7 +12,7 @@ export const Cards = styled.div`
   max-width: 45rem;
 `
 export const Title = styled.h1`
-    color: var(--purple-dark);
+    color: var(--text-color);
     font-size: var(--font-size-xlarge);
 `
 
@@ -23,15 +23,14 @@ export const Search = styled.div`
 `
 export const Input = styled.input`
     background: none;
-    
     text-align: left;
     font-size: var(--font-size-medium);
-    border: 2px solid var(--purple-dark);
+    border: 2px solid var(--text-color);
     border-radius: 50px;
     width: 21%;
     padding: 0.5rem 5rem 0.5rem 1rem;
 
-    input::placeholder {
-        color: var(--purple-dark);
+    &::placeholder {
+        color: var(--text-color);
     }
 `

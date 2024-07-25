@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 
 export const Card = styled.div`
-    background-color: var(--yellow-light);
-    color: var(--purple-dark);
+    background-color: var(--background-secondary);
+    color: var(--text-color);
     display: flex;
     flex-direction: column;
     box-shadow: 5px 5px 38px 0px rgba(0, 0, 0, 0.25);
@@ -25,8 +25,8 @@ export const Stock = styled.div`
     margin-bottom: 1rem;
 
     p {
-        background-color: var(--purple-dark);
-        color: var(--yellow-light);
+        background-color: var(--background-tertiary);
+        color: var(--text-color-secondary);
         padding: 0.3rem 1rem;
         border-radius: 15px;
     }
@@ -52,8 +52,8 @@ export const Buttons = styled.div`
         width: 3rem;
         height: 3rem;
         border-radius: 15px;
-        background-color: var(--purple-dark);
-        color: var(--yellow-light);
+        cursor: pointer;
+        background-color: var(--background-tertiary);
         font-size: var(--font-size-medium);
     }
 `

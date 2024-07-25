@@ -8,7 +8,6 @@ const Header = () => {
         <Title>Controle de estoque</Title>
         <ContainerButtons>
           <Link to="/form" className="link">Criar produto</Link>
-          <Link to="/form" className="link">Pesquisas avançadas</Link>
         </ContainerButtons>
       </Container>
       <Outlet />
