@@ -26,8 +26,8 @@ const ProductList = () => {
 
   const filteredProducts = products.filter(
     (product: IProduct) =>
-      product.name.includes(searchTerm.toLowerCase()) ||
-      product.description.includes(searchTerm.toLowerCase())
+      product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      product.description.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
